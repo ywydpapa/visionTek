@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- header S -->
       <header>
@@ -7,6 +7,10 @@
 		<p class="top_btn"><span class="btn_remote"><a href="http://367.co.kr/" target="_blank">원격지원</a></span>
 			<a href="<c:url value='#'/>" class="sidebar-toggle" data-toggle="offcanvas" role="button" onclick="openMenu()"></a>
 		</p>
+		<p class="top_btn"><span class="btn_remote"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfj3T-N8lP_FpvgZytPQ_32GBE3VEX04WuOptey4ynB6uxkAA/viewform" target="_blank">영업기회등록</a></span>
+         <a href="<c:url value='#'/>" class="sidebar-toggle" data-toggle="offcanvas" role="button" onclick="openMenu()"></a>
+      </p>
+
               <nav>
 			<ul>
 				<li><a href="<c:url value='/company/company01'/>">회사소개</a>
@@ -22,35 +26,30 @@
 						</div>
 					</div>
 				</li>
-				<li><a href="<c:url value='/solution/solution01'/>" >솔루션</a> 
+				<li><a href="<c:url value='/solution/solution01'/>" >SECURITY</a> 
 					<div class="dth2">
 						<div class="dth2_in">
 							<div class="m02">
 								<ul class="dth_wr ">
-									<li class="heading"><a href="<c:url value='/solution/solution01'/>">네트워크 보안</a></li>
+									<li class="heading"><a href="<c:url value='/solution/solution01'/>">보안솔루션</a></li>
 									<li><a href="<c:url value='/solution/solution01'/>">차세대방화벽</a></li>
-									<li><a href="<c:url value='/solution/solution01_2'/>">차세대IPS</a></li>
-									<li><a href="<c:url value='/solution/solution01_3'/>">망연계솔루션</a></li>
-									<li><a href="<c:url value='/solution/solution01_4'/>">트래픽분석관리시스템</a></li>
-									<li><a href="<c:url value='/solution/solution01_5'/>">APT공격탐지솔루션</a></li>
-									<li><a href="<c:url value='/solution/solution01_6'/>">유해사이트차단</a></li>
-									<li><a href="<c:url value='/solution/solution01_7'/>">SSL가시성장비</a></li>
+									<li><a href="<c:url value='/solution/solution01_2'/>">글로벌고성능방화벽</a></li>
+									<!--<li><a href="<c:url value='/solution/solution01_3'/>">망연계솔루션</a></li> -->
+									<li><a href="<c:url value='/solution/solution01_3'/>">트랙픽분석관리시스템</a></li>
+									<li><a href="<c:url value='/solution/solution01_4'/>">유해사이트차단</a></li>
+									<li><a href="<c:url value='/solution/solution01_5'/>">웹방화벽</a></li>
+									<li><a href="<c:url value='/solution/solution01_6'/>">PC개인정보보호</a></li>
+									<li><a href="<c:url value='/solution/solution01_7'/>">Smart NAC</a></li>
+									<li><a href="<c:url value='/solution/solution01_7'/>">보안 V-WORM 스토리지</a></li>
 								</ul>
 								<ul class="dth_wr">
-									<li class="heading"><a href="<c:url value='/solution/solution02'/>">클라우드</a></li>
-									<li><a href="<c:url value='/solution/solution02'/>">가상데스크톱</a></li>
-									<li><a href="<c:url value='/solution/solution02_2'/>">서버가상화</a></li>
-									<li><a href="<c:url value='/solution/solution02_3'/>">NFV</a></li>
-									<li><a href="<c:url value='/solution/solution02_4'/>">PaaS</a></li>
+									<li class="heading"><a href="<c:url value='/solution/solution03'/>">Database</a></li>
+									<li><a href="<c:url value='/solution/solution03'/>">eXperDB</a></li>
+									<li><a href="<c:url value='/solution/solution03_2'/>">MariaDB Max Scales</a></li>
+									<li><a href="<c:url value='/solution/solution03_3'/>">Goldilocks</a></li>
+									<li><a href="<c:url value='/solution/solution03_4'/>">DBMS Migration Service</a></li>
 								</ul>
-								<ul class="dth_wr">
-									<li class="heading"><a href="<c:url value='/solution/solution03'/>">어플리케이션 보안</a></li>
-									<li><a href="<c:url value='/solution/solution03'/>">웹방화벽</a></li>
-									<li><a href="<c:url value='/solution/solution03_2'/>">DB방화벽</a></li>
-									<li><a href="<c:url value='/solution/solution03_3'/>">VoIP방화벽</a></li>
-									<li><a href="<c:url value='/solution/solution03_4'/>">취약점분석</a></li>
-								</ul>
-								<ul class="dth_wr">
+								<!-- <ul class="dth_wr">
 									<li class="heading"><a href="<c:url value='/solution/solution04'/>">엔드 포인트 보안</a></li>
 									<li><a href="<c:url value='/solution/solution04'/>">PC개인정보보호</a></li>
 									<li><a href="<c:url value='/solution/solution04_2'/>">랜섬웨어차단</a></li>
@@ -61,23 +60,24 @@
 								</ul>
 								<ul class="dth_wr">
 									<li class="heading"><a href="<c:url value='/solution/solution05'/>">Other Solution</a></li>
-									<li><a href="<c:url value='/solution/solution05'/>">데이터베이스관리소프트웨어</a></li>
-									<li><a href="<c:url value='/solution/solution05_2'/>">CCTV원격관리솔루션</a></li>
-								</ul>
+
+									<li><a href="<c:url value='/solution/solution05_2'/>">WORM 스토리지</a></li>
+									<li><a href="<c:url value='/solution/solution05_3'/>">eXperDB</a></li>
+								</ul> -->
 							</div>
 						</div>
 					</div>
 				</li>
-				<li><a href="<c:url value='/procure/procure01'/>" >조달제품</a>
+				<li><a href="<c:url value='/procure/procure01'/>" >DBMS</a>
 					<div class="dth2">
 						<div class="dth2_in">
 							<div class="m03">
 								<ul class="dth_wr">
 									<li class="heading"><a href="<c:url value='/procure/procure01'/>">모니터랩</a></li>
 									<li><a href="<c:url value='/procure/procure01'/>">웹방화벽</a></li>
-									<li><a href="<c:url value='/procure/procure01_2'/>">DB방화벽</a></li>
-									<li><a href="<c:url value='/procure/procure01_3'/>">APT대응솔루션</a></li>
-									<li><a href="<c:url value='/procure/procure01_4'/>">VoIP방화벽</a></li>
+									<!--<li><a href="<c:url value='/procure/procure01_2'/>">DB방화벽</a></li>-->
+									<!--<li><a href="<c:url value='/procure/procure01_3'/>">APT대응솔루션</a></li>-->
+									<!--<li><a href="<c:url value='/procure/procure01_4'/>">VoIP방화벽</a></li>-->
 									<li><a href="<c:url value='/procure/procure01_5'/>">유해사이트차단</a></li>
 									<li><a href="<c:url value='/procure/procure01_6'/>">클라우드웹방화벽</a></li>
 								</ul>
@@ -91,21 +91,21 @@
 									<li><a href="<c:url value='/procure/procure03'/>">트래픽분석관리시스템</a></li>
 								</ul>
 								<ul class="dth_wr">
-									<li class="heading"><a href="<c:url value='/procure/procure04'/>">SQI소프트</a></li>
-									<li><a href="<c:url value='/procure/procure04'/>">망연계솔루션</a></li>
+									<!--<li class="heading"><a href="<c:url value='/procure/procure04'/>">SQI소프트</a></li>-->
+									<!--<li><a href="<c:url value='/procure/procure04'/>">망연계솔루션</a></li>-->
 								</ul>
+								<!-- <ul class="dth_wr">
+									<li class="heading"><a href="<c:url value='/procure/procure05'/>">올리브텍</a></li>
+									<li><a href="<c:url value='/procure/procure05'/>">Worm 스토리지</a></li>
+								</ul>-->
 								<ul class="dth_wr">
-									<li class="heading"><a href="<c:url value='/procure/procure05'/>">LG히다찌</a></li>
-									<li><a href="<c:url value='/procure/procure05'/>">올플래시 스토리지</a></li>
+									<li class="heading"><a href="<c:url value='/procure/procure06'/>">OLIVE TECH</a></li>
+									<li><a href="<c:url value='/procure/procure06'/>">WORM 스토리지</a></li>
 								</ul>
-								<ul class="dth_wr">
-									<li class="heading"><a href="<c:url value='/procure/procure06'/>">큐브바이트</a></li>
-									<li><a href="<c:url value='/procure/procure06'/>">CCTV원격관리솔루션</a></li>
-								</ul>
-								<ul class="dth_wr">
+								<!-- <ul class="dth_wr">
 									<li class="heading"><a href="<c:url value='/procure/procure07'/>">알티베이스</a></li>
 									<li><a href="<c:url value='/procure/procure07'/>">데이터베이스관리소프트웨어</a></li>
-								</ul>
+								</ul> -->
 								<ul class="dth_wr" style="display: none">
 									<li class="heading"><a href="<c:url value='/procure/procure08'/>">BeyondTrust</a></li>
 									<li><a href="<c:url value='/procure/procure08'/>">랜섬웨어 대응솔루션</a></li>
@@ -114,11 +114,42 @@
 						</div>
 					</div>
 				</li>
-				<li><a href="<c:url value='/security/security01'/>">보안SI</a>
+				<li><a href="<c:url value='/security/security01'/>">클라우드</a>
+					<div class="dth2">
+						<div class="dth2_in">
+							<div class="m02">
+								<ul class="dth_wr">
+									<li class="heading"><a href="<c:url value='/solution/solution02'/>">클라우드</a></li>
+									<li><a href="<c:url value='/solution/solution02'/>">가상데스크톱</a></li>
+									<li><a href="<c:url value='/solution/solution02_2'/>">서버가상화</a></li>
+									<!-- <li><a href="<c:url value='/solution/solution02_3'/>">NFV</a></li> -->
+									<li><a href="<c:url value='/solution/solution02_4'/>">ACCORDION</a></li>
+								</ul>
+								<!-- <ul class="dth_wr">
+									<li class="heading"><a href="<c:url value='/solution/solution04'/>">엔드 포인트 보안</a></li>
+									<li><a href="<c:url value='/solution/solution04'/>">PC개인정보보호</a></li>
+									<li><a href="<c:url value='/solution/solution04_2'/>">랜섬웨어차단</a></li>
+									<li><a href="<c:url value='/solution/solution04_3'/>">키보드보안</a></li>
+									<li><a href="<c:url value='/solution/solution04_4'/>">보안USB</a></li>
+									<li><a href="<c:url value='/solution/solution04_5'/>">네트워크접근제어</a></li>
+									<li><a href="<c:url value='/solution/solution04_6'/>">내부정보유출방지</a></li>
+								</ul>
+								<ul class="dth_wr">
+									<li class="heading"><a href="<c:url value='/solution/solution05'/>">Other Solution</a></li>
+
+									<li><a href="<c:url value='/solution/solution05_2'/>">WORM 스토리지</a></li>
+									<li><a href="<c:url value='/solution/solution05_3'/>">eXperDB</a></li>
+								</ul> -->
+							</div>
+						</div>
+					</div>
+				</li>
+				<li><a href="<c:url value='/newfolder/solution01.jsp'/>">보안SI</a>
+				<%-- <li><a href="../views/newfolder/solution01.jsp">보안SI</a> --%>
 					<div class="dth2">
 						<div class="dth2_in">
 							<ul class="m04">
-								<li><a href="<c:url value='/security/security01'/>">보안SI</a></li>
+								<li><a href="<c:url value='/security/solution01'/>">보안SI</a></li>
 							</ul>
 						</div>
 					</div>
@@ -165,7 +196,7 @@
 							<div class="submn_inner">
 								<a href="<c:url value='/solution/solution01'/>">차세대방화벽</a>
 								<a href="<c:url value='/solution/solution01_2'/>">차세대IPS</a>
-								<a href="<c:url value='/solution/solution01_3'/>">망연계솔루션</a>
+								<a href="<c:url value='/solution/solution01_3'/>">글로벌차세대방화벽</a>
 								<a href="<c:url value='/solution/solution01_4'/>">트래픽분석관리시스템</a>
 								<a href="<c:url value='/solution/solution01_5'/>">APT공격탐지솔루션</a>
 								<a href="<c:url value='/solution/solution01_6'/>">유해사이트차단</a>
@@ -176,14 +207,14 @@
 								<a href="<c:url value='/solution/solution02'/>">가상데스크톱</a>
 								<a href="<c:url value='/solution/solution02_2'/>">서버가상화</a>
 								<a href="<c:url value='/solution/solution02_3'/>">NFV</a>
-								<a href="<c:url value='/solution/solution02_4'/>">PaaS</a>
+								<a href="<c:url value='/solution/solution02_4'/>">ACCORDION</a>
 							</div>
                 		<a class="plus2">어플리케이션 보안</a>
 							<div class="submn_inner">
 								<a href="<c:url value='/solution/solution03'/>">웹방화벽</a>
-								<a href="<c:url value='/solution/solution03_2'/>">DB방화벽</a>
-								<a href="<c:url value='/solution/solution03_3'/>">VoIP방화벽</a>
-								<a href="<c:url value='/solution/solution03_4'/>">취약점분석</a>
+								<!--<a href="<c:url value='/solution/solution03_2'/>">DB방화벽</a>-->
+								<!--<a href="<c:url value='/solution/solution03_3'/>">VoIP방화벽</a>-->
+								<!--<a href="<c:url value='/solution/solution03_4'/>">취약점분석</a>-->
 							</div>
 						<a class="plus2">엔드 포인트 보안</a>
 							<div class="submn_inner">
@@ -196,8 +227,8 @@
 							</div>
 						<a class="plus2">Other Solution</a>
 							<div class="submn_inner">
-								<a href="<c:url value='/solution/solution05'/>">데이터베이스관리소프트웨어</a>
-								<a href="<c:url value='/solution/solution05_2'/>">CCTV원격관리솔루션</a>
+								<a href="<c:url value='/solution/solution05_2'/>">WORM 스토리지</a>
+								<a href="<c:url value='/solution/solution05_3'/>">eXperDB</a>
 							</div>
                           </div>
 						<a class="plus">조달제품</a>
@@ -205,9 +236,9 @@
                               <a class="plus2">모니터랩</a>
 							<div class="submn_inner">
 								<a href="<c:url value='/procure/procure01'/>">웹방화벽</a>
-								<a href="<c:url value='/procure/procure01_2'/>">DB방화벽</a>
-								<a href="<c:url value='/procure/procure01_3'/>">APT대응솔루션</a>
-								<a href="<c:url value='/procure/procure01_4'/>">VoIP방화벽</a>
+								<!--<a href="<c:url value='/procure/procure01_2'/>">DB방화벽</a>-->
+								<!--<a href="<c:url value='/procure/procure01_3'/>">APT대응솔루션</a>-->
+								<!--<a href="<c:url value='/procure/procure01_4'/>">VoIP방화벽</a>-->
 								<a href="<c:url value='/procure/procure01_5'/>">유해사이트차단</a>
 								<a href="<c:url value='/procure/procure01_6'/>">클라우드웹방화벽</a>
 							</div>
@@ -224,17 +255,17 @@
 							<div class="submn_inner">
 								<a href="<c:url value='/procure/procure04'/>">망연계솔루션</a>
 							</div>
-							<a class="plus2">LG히다찌</a>
+							<!-- <a class="plus2">올리브텍</a>
 							<div class="submn_inner">
-								<a href="<c:url value='/procure/procure05'/>">올플래시 스토리지</a>
+								<a href="<c:url value='/procure/procure05'/>">Worm 스토리지</a>-->
 							</div>
-							<a class="plus2">큐브바이트</a>
+							<a class="plus2">OLIVE TECH</a>
 							<div class="submn_inner">
 								<a href="<c:url value='/procure/procure06'/>">CCTV원격관리솔루션</a>
 							</div>
-							<a class="plus2">알티베이스</a>
+							<!-- <a class="plus2">알티베이스</a>
 							<div class="submn_inner">
-								<a href="<c:url value='/procure/procure07'/>">데이터베이스관리소프트웨어</a>
+								<a href="<c:url value='/procure/procure07'/>">데이터베이스관리소프트웨어</a>-->
 							</div>
 							<a class="plus2">BeyondTrust</a>
 							<div class="submn_inner">
