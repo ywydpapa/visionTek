@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd ">
+
+<mapper namespace="loginDAO">
+	<select id="selectAdminInfo" resultType="AdminVO">
+		<![CDATA[	
+			SELECT 
+				  admin_id AS adminId
+				, admin_pwd AS adminPwd	
+				, previledge
+				, admin_name AS adminName
+				, gender
+				, birth
+				, phone
+				, email
+				, create_admin_id AS createAdminId
+				, date_format(create_date, '%Y-%m-%d') AS createDate
+				, update_admin_id AS updateAdminId
+				, date_format(update_date, '%Y-%m-%d') AS updateDate
+			FROM admin_info
+			WHERE admin_id = #{adminId}
+			AND admin_pwd = MD5(#{adminPwd})
+		]]>
+	</select>
+</mapper>

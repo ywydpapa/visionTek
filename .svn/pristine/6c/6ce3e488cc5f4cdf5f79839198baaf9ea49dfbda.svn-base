@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+    <select id="selectBoardTotalCount" parameterType="boardVO" resultType="int">
+        SELECT  COUNT(1)
+        FROM    board
+        <if test="searchKeyword != ''">
+            <choose>
+                <when test="searchCondition == 'title'">
+                    WHERE   title like CONCAT('%', #{searchKeyword}, '%') 
+                </when>
+                <when test="searchCondition == 'content'">
+                    WHERE   content like CONCAT('%', #{searchKeyword}, '%')
+                </when>
+            </choose>
+        </if>
+    </select>
+    
+    <select id="selectBoardList" parameterType="boardVO" resultType="boardVO">
+        SELECT  seq
+                ,title
+                ,content
+                ,(case when important='Y' then '공지' else '미공지' end) AS important
+                ,read_count AS readCount
+                ,has_attachment AS hasAttachment
+                ,writer_id AS writerId
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    board
+        <if test="searchKeyword != ''">
+            <choose>
+                <when test="searchCondition == 'title'">
+                    WHERE   title like CONCAT('%', #{searchKeyword}, '%') 
+                </when>
+                <when test="searchCondition == 'content'">
+                    WHERE   content like CONCAT('%', #{searchKeyword}, '%')
+                </when>
+            </choose>
+        </if>
+        ORDER BY important, seq DESC
+        LIMIT #{firstIndex}, #{recordCountPerPage}
+    </select>
+    
+    <select id="selectBoard" parameterType="map" resultType="boardVO">
+         SELECT seq
+                ,title
+                ,content
+                ,important
+                ,read_count AS readCount
+                ,has_attachment AS hasAttachment
+                ,writer_id AS writerId
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    board
+        WHERE   seq = #{seq}
+    </select>
+    
+    <select id="selectBoardFileList" parameterType="map" resultType="fileVO">
+         SELECT seq
+                ,board_seq
+                ,org_filename AS orgFilename
+                ,real_filename AS realFilename
+                ,file_size AS fileSize
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    board_file
+        WHERE   board_seq = #{seq}
+    </select>
+    
+    <update id="updateReadCount" parameterType="map">
+        UPDATE  board
+        SET     read_count = read_count + 1
+        WHERE   seq = #{seq}
+    </update>
+    
+    
+    
+    <select id="selectItemBoardTotalCount" parameterType="itemVO" resultType="int">
+        SELECT  COUNT(1)
+        FROM    board_item
+ 		<if test="type == '웹방화벽'">						WHERE type = '웹방화벽'</if>
+        <if test="type == 'DB방화벽'" >						WHERE type = 'DB방화벽'</if>
+        <if test="type == 'APT대응솔루션'" >				WHERE type = 'APT대응솔루션'</if>
+        <if test="type == 'VoIP방화벽'" >					WHERE type = 'VoIP방화벽'</if>
+        <if test="type == '유해사이트차단'" >				WHERE type = '유해사이트차단'</if>
+        <if test="type == '클라우드웹방화벽'" >				WHERE type = '클라우드웹방화벽'</if>
+        <if test="type == '가상데스크톱'">					WHERE type = '가상데스크톱'</if>
+        <if test="type == '컴퓨터망전환장치'">				WHERE type = '컴퓨터망전환장치'</if>
+        <if test="type == '트래픽분석관리시스템'" >			WHERE type = '트래픽분석관리시스템'</if>
+        <if test="type == '망연계솔루션'">					WHERE type = '망연계솔루션'</if>
+        <if test="type == '올플래시 스토리지'">				WHERE type = '올플래시 스토리지'</if>
+        <if test="type == 'CCTV원격관리솔루션'">			WHERE type = 'CCTV원격관리솔루션'</if>
+        <if test="type == '데이터베이스관리소프트웨어'">	WHERE type = '데이터베이스관리소프트웨어'</if>
+        <if test="type == '랜섬웨어 대응솔루션'">			WHERE type = '랜섬웨어 대응솔루션'</if>
+    </select>
+    
+    <select id="selectItemBoardList" parameterType="itemVO" resultType="itemVO">
+        SELECT  seq
+        		,important
+        		,type
+                ,title
+                ,sub_title AS subTitle
+                ,content
+                ,item_number AS itemNumber
+                ,price
+                ,writer_id AS writerId
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    board_item
+ 		<if test="type == '웹방화벽'">						WHERE type = '웹방화벽'</if>
+        <if test="type == 'DB방화벽'" >						WHERE type = 'DB방화벽'</if>
+        <if test="type == 'APT대응솔루션'" >				WHERE type = 'APT대응솔루션'</if>
+        <if test="type == 'VoIP방화벽'" >					WHERE type = 'VoIP방화벽'</if>
+        <if test="type == '유해사이트차단'" >				WHERE type = '유해사이트차단'</if>
+        <if test="type == '클라우드웹방화벽'" >				WHERE type = '클라우드웹방화벽'</if>
+        <if test="type == '가상데스크톱'">					WHERE type = '가상데스크톱'</if>
+        <if test="type == '컴퓨터망전환장치'">				WHERE type = '컴퓨터망전환장치'</if>
+        <if test="type == '트래픽분석관리시스템'" >			WHERE type = '트래픽분석관리시스템'</if>
+        <if test="type == '망연계솔루션'">					WHERE type = '망연계솔루션'</if>
+        <if test="type == '올플래시 스토리지'">				WHERE type = '올플래시 스토리지'</if>
+        <if test="type == 'CCTV원격관리솔루션'">			WHERE type = 'CCTV원격관리솔루션'</if>
+        <if test="type == '데이터베이스관리소프트웨어'">	WHERE type = '데이터베이스관리소프트웨어'</if>
+        <if test="type == '랜섬웨어 대응솔루션'">			WHERE type = '랜섬웨어 대응솔루션'</if>
+        ORDER BY seq DESC
+        LIMIT #{firstIndex}, #{recordCountPerPage}
+    </select>
+    
+    
+    <select id="selectMainItemBoardTotalCount" parameterType="itemVO" resultType="int">
+        SELECT  COUNT(1)
+        FROM    board_item
+        WHERE   important = 'Y'
+    </select>
+    
+    <select id="selectMainItemBoardList" parameterType="itemVO" resultType="itemVO">
+        SELECT  seq
+        		,important
+        		,type
+                ,title
+                ,sub_title AS subTitle
+                ,content
+                ,item_number AS itemNumber
+                ,price
+                ,writer_id AS writerId
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    board_item
+        WHERE   important = 'Y'
+        ORDER BY seq DESC
+        LIMIT #{firstIndex}, #{recordCountPerPage}
+    </select>
+    
+    
+    <select id="selectMainBoardList" parameterType="boardVO" resultType="boardVO">
+        SELECT  seq
+                ,title
+                ,content
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    board
+        ORDER BY seq DESC
+        LIMIT #{firstIndex}, #{recordCountPerPage}
+    </select>
+    
+</mapper>

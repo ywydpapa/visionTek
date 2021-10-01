@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd ">
+
+<mapper namespace="adminDAO">
+	<select id="selectAdminList" resultType="AdminVO">
+		<![CDATA[
+			SELECT 
+				  admin_id AS adminId
+				, admin_pwd AS adminPwd
+				, admin_name AS adminName
+				, gender
+				, birth
+				, phone
+				, email
+				, create_admin_id AS createAdminId
+				, date_format(create_date,'%Y-%m-%d') AS createDate
+				, update_admin_id AS updateAdminId
+				, date_format(update_date, '%Y-%m-%d') AS updateDate
+			FROM admin_info
+			ORDER BY  create_date DESC
+			LIMIT #{firstIndex}, #{recordCountPerPage}	
+		]]>
+	</select>
+	
+	<select id="selectAdminCnt" resultType="Integer">
+		<![CDATA[
+			SELECT 
+				COUNT(*)
+			FROM admin_info
+		]]>
+	</select>
+	
+	<select id="checkAdminId" resultType="Integer">
+		<![CDATA[
+			SELECT
+				count(*) AS cnt
+			FROM admin_info
+			WHERE admin_id = #{adminId}
+		]]>
+	</select>
+
+	<!-- 비밀번호 찾기 -->
+	<select id="selectFindResult" resultType="AdminVO" parameterType="AdminVO">
+		SELECT	admin_id
+				,email
+		FROM	admin_info
+		WHERE	admin_id = #{adminId}
+		AND		email = #{email}
+	</select>
+	
+	<select id="findAccount">
+		UPDATE 	admin_info
+		SET		admin_pwd = '1234'
+		WHERE 	admin_id = #{adminId}
+	</select>
+	
+	<insert id="insertAdminInfo">
+		INSERT INTO 
+			admin_info (
+				  admin_id
+				, admin_pwd
+				, admin_name
+				, email
+				, phone
+			) VALUES (
+				  #{adminId}
+				, MD5(#{adminPwd})
+				, #{adminName}
+				, #{email}
+				, #{phone}
+			)
+	</insert>
+	
+	<select id="selectAdminInfo" resultType="AdminVO">
+		<![CDATA[
+			SELECT 
+				  admin_id AS adminId
+				, admin_pwd AS adminPwd
+				, admin_name AS adminName
+				, phone
+				, email
+				, create_admin_id AS createAdminId
+				, date_format(create_date,'%Y-%m-%d') AS createDate
+				, update_admin_id AS updateAdminId
+				, DATE_FORMAT(update_date, '%Y-%m-%d') AS updateDate
+			FROM admin_info
+			WHERE 
+				admin_id = #{adminId}
+		]]>
+	</select>
+	
+	<update id="modifyAdminInfo">
+		UPDATE admin_info
+		SET
+			  admin_pwd = MD5(#{adminPwd})
+			, admin_name = #{adminName}
+			, email = #{email}
+			, phone = #{phone}
+			, update_date = NOW()
+		WHERE admin_id = #{adminId}
+	</update>
+	
+	<delete id="deleteAdminInfo">
+		<![CDATA[
+			DELETE 
+			FROM admin_info
+			WHERE admin_id IN
+		]]>
+		<foreach item="seqs" collection="array" open="(" close=")" separator=",">
+			#{seqs}
+		</foreach>
+	</delete>
+</mapper>

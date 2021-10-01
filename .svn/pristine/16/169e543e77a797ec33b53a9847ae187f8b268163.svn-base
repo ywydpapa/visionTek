@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" 
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="front.root" template="/WEB-INF/layouts/layout_root.jsp">
+	   <put-attribute name="header" value="/WEB-INF/layouts/header.jsp"/>
+		<put-attribute name="body" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp"/>
+	</definition>
+	
+	<definition name="front.no" template="/WEB-INF/layouts/layout_no.jsp">
+        <put-attribute name="body" value=""/>
+    </definition>
+  
+  
+    <!-- Main -->
+    <definition name="/main/index" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/main/index.jsp"/>
+    </definition>
+    
+    
+    <!-- news -->
+    <definition name="/news/notice_list" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/news/notice_list.jsp"/>
+    </definition>
+    
+    <definition name="/news/notice_view" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/news/notice_view.jsp"/>
+    </definition>
+    
+    
+    <!-- procure -->
+    <definition name="/procure/procure01" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure01.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure01_2" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure01_2.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure01_3" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure01_3.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure01_4" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure01_4.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure01_5" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure01_5.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure01_6" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure01_6.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure02" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure02.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure02_2" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure02_2.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure03" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure03.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure04" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure04.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure05" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure05.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure06" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure06.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure07" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure07.jsp"/>
+    </definition>
+    
+    <definition name="/procure/procure08" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/procure/procure08.jsp"/>
+    </definition>
+    
+    
+    <!-- solution -->
+    <definition name="/solution/solution01" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution01.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution01_2" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution01_2.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution01_3" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution01_3.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution01_4" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution01_4.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution01_5" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution01_5.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution01_6" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution01_6.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution01_7" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution01_7.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution02" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution02.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution02_2" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution02_2.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution02_3" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution02_3.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution02_4" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution02_4.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution03" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution03.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution03_2" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution03_2.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution03_3" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution03_3.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution03_4" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution03_4.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution04" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution04.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution04_2" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution04_2.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution04_3" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution04_3.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution04_4" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution04_4.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution04_5" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution04_5.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution04_6" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution04_6.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution05" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution05.jsp"/>
+    </definition>
+    
+    <definition name="/solution/solution05_2" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/solution/solution05_2.jsp"/>
+    </definition>
+    
+    
+    <!-- company -->
+    <definition name="/company/company01" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/company/company01.jsp"/>
+    </definition>
+    
+    <definition name="/company/company02" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/company/company02.jsp"/>
+    </definition>
+    
+    <definition name="/company/company03" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/company/company03.jsp"/>
+    </definition>
+    
+    <definition name="/company/company04" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/company/company04.jsp"/>
+    </definition>
+    
+    <definition name="/company/company05" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/company/company05.jsp"/>
+    </definition>
+    
+    
+    <!-- maintenance -->
+    <definition name="/maintenance/maintenance01" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/maintenance/maintenance01.jsp"/>
+    </definition>    
+    
+    
+    <!-- security -->
+    <definition name="/security/security01" extends="front.root">
+        <put-attribute name="body" value="/WEB-INF/views/security/security01.jsp"/>
+    </definition>    
+</tiles-definitions>

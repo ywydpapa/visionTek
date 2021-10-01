@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" 
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="admin.front.root" template="/WEB-INF/layouts/admin_layout.jsp">
+	   <put-attribute name="adminHeader" value="/WEB-INF/layouts/adminHeader.jsp"/>
+		<put-attribute name="adminBody" value=""/>
+		<put-attribute name="adminFooter" value="/WEB-INF/layouts/adminFooter.jsp"/>
+	</definition>
+	
+	<definition name="admin.front.no" template="/WEB-INF/layouts/admin_layout_no.jsp">
+        <put-attribute name="adminBody" value=""/>
+    </definition>
+	
+	<!-- Login -->
+	<definition name="/manager/login" extends="admin.front.no">
+        <put-attribute name="adminBody" value="/WEB-INF/views/manager/login.jsp"/>
+    </definition>
+	
+    <!-- Admin -->
+    <definition name="/manager/admin/adminList" extends="admin.front.root">
+        <put-attribute name="adminBody" value="/WEB-INF/views/manager/admin/adminList.jsp"/>
+    </definition>
+    
+    <definition name="/manager/admin/registerAdmin" extends="admin.front.root">
+        <put-attribute name="adminBody" value="/WEB-INF/views/manager/admin/registerAdmin.jsp"/>
+    </definition>
+    
+    <!-- Notice -->
+    <definition name="/manager/board/noticeList" extends="admin.front.root">
+        <put-attribute name="adminBody" value="/WEB-INF/views/manager/board/noticeList.jsp"/>
+    </definition>
+    
+    <definition name="/manager/board/registerNotice" extends="admin.front.root">
+        <put-attribute name="adminBody" value="/WEB-INF/views/manager/board/registerNotice.jsp"/>
+    </definition>
+    
+    <definition name="/manager/board/itemList" extends="admin.front.root">
+        <put-attribute name="adminBody" value="/WEB-INF/views/manager/board/itemList.jsp"/>
+    </definition>
+    
+    <definition name="/manager/board/registerItem" extends="admin.front.root">
+        <put-attribute name="adminBody" value="/WEB-INF/views/manager/board/registerItem.jsp"/>
+    </definition>
+    
+    <definition name="/manager/board/brochureList" extends="admin.front.root">
+        <put-attribute name="adminBody" value="/WEB-INF/views/manager/board/brochureList.jsp"/>
+    </definition>
+    
+    <definition name="/manager/board/registerBrochure" extends="admin.front.root">
+        <put-attribute name="adminBody" value="/WEB-INF/views/manager/board/registerBrochure.jsp"/>
+    </definition>
+    
+</tiles-definitions>

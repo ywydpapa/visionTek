@@ -1,0 +1,218 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+/*@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);*/
+@import url(https://cdn.jsdelivr.net/nanumsquare/1.0/nanumsquare.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+/* Base */
+
+/* html5 되면서 block 되어야 하는 요소들 */
+header, footer, nav, section, article, aside, menu, figure, figcaption, body {
+	display:block;
+	padding:0;
+	margin:0;
+}
+
+* { margin: 0; padding: 0;}
+body {font-family:'Nanum Gothic','Noto Sans KR', '돋움','굴림',Verdana,Arial,Helvetica,clean,sans-serif; font-size:14px; line-height:150%; color:#555555;word-break:keep-all; -webkit-text-size-adjust: 100%;/*아이폰의 폰트 사이즈를 고정 시키는 방법*/}
+
+body, div, ul, li, dl, dt, dd, ol, p, table, tr, td, select, textarea, input, form, {margin: 0; padding: 0; line-height:1.4em;}
+
+img {border: 0; vertical-align: middle;}
+
+button, fieldset, iframe {border:none;}
+
+p {line-height:1.5em; text-align:justify;}
+
+table {border-collapse: collapse;}
+
+h1 {vertical-align: middle;}
+
+h2 { vertical-align: middle;}
+h3{vertical-align: middle;}
+h4, h5, h6 { vertical-align: middle;}
+
+ul, ol, ul li {list-style:none; margin:0; padding:0;}
+
+.clear {clear: both;}
+
+hr {display:none;}
+
+legend, caption {display: none;}
+
+em {font-style: normal;}
+
+a {text-decoration:none; cursor: pointer;color:#307ade;}
+
+input {border: 1px solid #d3d3d3; height: 25px; font-size:1em; padding:6px 5px;  margin: 0; vertical-align:middle;}
+textarea {overflow:auto;  font-size:1em;  padding:10px 5px; border:solid 1px #afafaf;} 
+input[type="radio"],
+input[type="checkbox"] {border:none;}
+input[type="image"] {border:none;}
+select {
+	border: 1px solid #d3d3d3;
+	padding: 6px 5px;
+	margin: 0;
+	font-size:1em; 
+	color:#555555;
+	height:37px; 
+	line-height: 37px;
+	vertical-align:middle;
+} 
+
+/* input */
+input:focus::-webkit-input-placeholder, 
+textarea:focus::-webkit-input-placeholder { 
+ color:transparent;
+}/* WebKit browsers */
+
+input:focus:-moz-placeholder, 
+textarea:focus:-moz-placeholder {
+color:transparent; 
+} /* Mozilla Firefox 4 to 18 */ 
+
+
+input:focus::-moz-placeholder, 
+textarea:focus::-moz-placeholder { 
+color:transparent; 
+} /* Mozilla Firefox 19+ */ 
+
+input:focus:-ms-input-placeholder, 
+textarea:focus:-ms-input-placeholder { 
+color:transparent;
+}/* Internet Explorer 10+ */ 
+
+input:focus {
+  outline: none;
+}
+
+/* 여백 */
+.mt5 {margin-top:5px;}
+.mt10 {margin-top:10px;}
+.mt15 {margin-top:15px;}
+.mt20 {margin-top:20px;}
+.mt25 {margin-top:25px;}
+.mt30 {margin-top:30px;}
+.mt35 {margin-top:35px;}
+.mt40 {margin-top:40px;}
+.mt45 {margin-top:45px;}
+.mt50 {margin-top:50px;}
+.mt80 {margin-top:80px !important;}
+.mt220 {margin-top:220px;}
+
+.mb5 {margin-bottom:5px;}
+.mb10 {margin-bottom:10px;}
+.mb15 {margin-bottom:15px;}
+.mb20 {margin-bottom:20px;}
+.mb25 {margin-bottom:25px;}
+.mb30 {margin-bottom:30px;}
+.mb35 {margin-bottom:35px;}
+.mb40 {margin-bottom:40px;}
+.mb45 {margin-bottom:45px;}
+.mb50 {margin-bottom:50px;}
+
+.ml5 {margin-left:5px;}
+.ml10 {margin-left:10px;}
+.ml15 {margin-left:15px;}
+.ml20 {margin-left:20px;}
+.ml25 {margin-left:25px;}
+.ml30 {margin-left:30px;}
+.ml35 {margin-left:35px;}
+.ml40 {margin-left:40px;}
+.ml45 {margin-left:45px;}
+.ml50 {margin-left:50px;}
+
+.mr2 {margin-right:2px;}
+.mr5 {margin-right:5px;}
+.mr10 {margin-right:10px;}
+.mr15 {margin-right:15px;}
+.mr20 {margin-right:20px;}
+.mr25 {margin-right:25px;}
+.mr30 {margin-right:30px;}
+.mr35 {margin-right:35px;}
+.mr40 {margin-right:40px;}
+.mr45 {margin-right:45px;}
+.mr50 {margin-right:50px;}
+
+.mr90 {margin-right:90px !important;}
+.mr-100 {margin-right:-100px !important;}
+
+.pt5 {padding-top:5px;}
+.pt10 {padding-top:10px;}
+.pt15 {padding-top:15px;}
+.pt20 {padding-top:20px;}
+.pt25 {padding-top:25px;}
+.pt30 {padding-top:30px;}
+.pt35 {padding-top:35px;}
+.pt40 {padding-top:40px;}
+.pt45 {padding-top:45px;}
+.pt50 {padding-top:50px;}
+.pt80 {padding-top:80px;}
+
+.pl5 {padding-left:5px;}
+.pl10 {padding-left:10px;}
+.pl15 {padding-left:15px;}
+.pl20 {padding-left:20px;}
+.pl25 {padding-left:25px;}
+.pl30 {padding-left:30px;}
+.pl35 {padding-left:35px;}
+.pl40 {padding-left:40px;}
+.pl45 {padding-left:45px;}
+.pl50 {padding-left:50px;}
+
+.pr5 {padding-right:5px;}
+.pr10 {padding-right:10px;}
+.pr15 {padding-right:15px;}
+.pr20 {padding-right:20px;}
+.pr25 {padding-right:25px;}
+.pr30 {padding-right:30px;}
+.pr35 {padding-right:35px;}
+.pr40 {padding-right:40px;}
+.pr45 {padding-right:45px;}
+.pr50 {padding-right:50px;}
+
+/* 정렬 */
+.f_lft {
+	float:left !important;
+}
+.f_rgt {
+	float:right !important;
+}
+.lft {
+	text-align:left !important;
+}
+.rgt {
+	text-align:right !important;
+}
+.center{
+	text-align:center !important;
+}
+
+/* input */
+input:focus::-webkit-input-placeholder, 
+textarea:focus::-webkit-input-placeholder { 
+ color:transparent;
+}/* WebKit browsers */
+
+input:focus:-moz-placeholder, 
+textarea:focus:-moz-placeholder {
+color:transparent; 
+} /* Mozilla Firefox 4 to 18 */ 
+
+
+input:focus::-moz-placeholder, 
+textarea:focus::-moz-placeholder { 
+color:transparent; 
+} /* Mozilla Firefox 19+ */ 
+
+input:focus:-ms-input-placeholder, 
+textarea:focus:-ms-input-placeholder { 
+color:transparent;
+}/* Internet Explorer 10+ */ 
+
+input:focus {
+  outline: none;
+}

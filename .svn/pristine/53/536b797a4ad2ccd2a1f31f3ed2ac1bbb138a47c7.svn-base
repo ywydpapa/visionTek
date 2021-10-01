@@ -1,0 +1,256 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 검색 */
+.search_wr {
+	width: 100%;
+	margin-bottom: 25px;
+	overflow:hidden;
+	text-align:center;
+}
+.search_wr select {
+	width: 120px;
+	height: 37px;
+	border: 0;
+	border-bottom: 3px solid #dfdfdf;
+	padding: 8px 5px;
+	line-height: 37px;
+	margin-right: 3px;
+}
+.search_sec {
+	width: 310px;
+	height: 35px;
+	line-height: 35px;
+	display:inline-block;
+	border-bottom: 3px solid #dfdfdf;
+	margin-right:3px;
+}
+.search_sec input {
+	width: 250px;
+	height: 18px;
+	border:0;
+}
+.search_wr button {
+	display: inline-block;
+	width: 60px; 
+	height: 40px; 
+	background: url(../img/news/ico_search.png) center center no-repeat;
+	text-indent: -9999px;
+}
+
+
+/* bbs */
+.bbs {
+	width:100%;
+	margin-bottom: 30px;
+}
+.bbs_list {}
+.bbs_list li {
+	border: 1px solid #dfdfdf;
+	padding: 20px 0;
+	margin-bottom: 8px;
+}
+.bbs_list li .txt_area {
+	width: 95%;
+	margin: 0 auto;
+}
+.bbs_list li .txt_area a {
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	display:block;
+	margin-bottom:20px;
+}
+.bbs_list li .txt_area a .tit {
+	color:#212121;
+	font-size: 20px;
+}
+.bbs_list li .txt_area  span {
+	margin-right: 20px;
+	color:#9ea3b5;
+	font-weight: 300;
+}
+.bbs_list li a .ico_notice {
+	width: 36px;
+	height: 22px;
+	line-height:22px;
+	font-size: 11px;
+	color:#fff;
+	background:#c21c2c;
+	display:inline-block;
+	margin-right: 5px !important;
+	text-align:center;
+}
+
+.bbs_view {
+	width:100%;
+	border-top: 1px solid #212121;
+	border-bottom: 1px solid #212121;
+}
+.bbs_view .view_tit{
+	width:100%;
+	border-bottom: 1px solid #dfdfdf;
+	padding: 25px 0;
+}
+.bbs_view .view_tit p {
+	width: 94%;
+	margin: 0 auto;
+	margin-bottom:10px;
+	color:#9ea3b5;
+}
+.bbs_view .view_tit .hit {
+	float:right;
+}
+.bbs_view .view_tit .tit {
+	width: 94%;
+	margin: 0 auto;
+	font-size: 22px;
+	color:#212121;
+}
+.bbs_view .view_cont {
+	padding: 25px 0;
+	border-bottom: 1px solid #dfdfdf;
+}
+.bbs_view .view_cont .con{
+	width: 94%;
+	margin: 0 auto;
+}
+.bbs_view .file {
+	width: 94%;
+	margin: 0 auto;
+	padding: 20px 0;
+	overflow: hidden;
+	
+}
+.bbs_view .file dt {
+	width: 12%;
+	float:left;
+	text-align:center;
+}
+.bbs_view .file dd {
+	width: 87%;
+	float:right;
+	
+}
+.bbs_view .file dd a {
+	color:#;
+}
+
+.bbs_view .view_cont .con img{ 
+	max-width:100%; 
+}
+
+/* 페이징 */
+.paging {
+  margin-bottom: 30px;
+}
+.paging ul {
+  text-align: center;
+}
+.paging ul li {
+  width: 38px;
+  height: 38px;
+  display: inline;
+  margin-left: 1px;
+}
+.paging ul li:first-child {
+  margin-left: 0;
+}
+.paging ul li a {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  line-height: 37px;
+  color: #666;
+  background-color: #fff;
+  border:1px solid #d3d3d3;
+}
+.paging ul li a:hover {
+  background-color: #969696;
+  color: #fff;
+  text-decoration: none;
+  border:1px solid #969696;
+}
+.paging ul li a.active {
+  background-color: #969696;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  border:1px solid #969696;
+}
+
+.mb_paging_btn {
+	width:100%;
+	text-align:center;
+	overflow:hidden;
+	display:none;
+}
+.mb_paging_btn button {
+	width:60px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	background:#212121;
+	color:#fff;
+	border-radius: 3px;
+	margin: 0 5px;
+}
+.mb_paging_btn span.total {
+	padding: 0 18px;
+	height:35px;
+	line-height:35px;
+	border-radius: 3px;
+	background:#888;
+	color:#fff;
+	display:inline-block;
+}
+
+
+
+
+/* == mediaQuery Start
+======================================================= */
+
+@media all and (max-width:992px){
+/* bbs */
+
+
+
+
+}
+
+@media all and (max-width:929px){
+
+/* bbs */
+
+}
+
+@media all and (max-width:768px){
+/* bbs */
+
+	.search_wr select {width: 25%;float:left;}
+	.search_sec {width: 60%;float:left;}
+	.search_sec input {width: 95%;}
+
+	.paging {display:none;}
+	.mb_paging_btn {display:block;}
+
+	
+}
+@media all and (max-width:640px){
+/* bbs */
+	.search_wr select {width: 20%;}
+	
+}
+
+@media all and (max-width:480px){
+/* bbs */
+
+	
+}
+
+@media all and (max-width:375px){
+/* bbs */
+
+	.search_sec {width: 53%;float:left;}
+}

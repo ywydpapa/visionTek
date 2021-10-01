@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias alias="boardVO" type="com.vision.tek.board.vo.BoardVO"/>
+		<typeAlias alias="fileVO" type="com.vision.tek.board.vo.FileVO"/>
+		
+		<typeAlias alias="itemVO" type="com.vision.tek.board.vo.ItemVO"/>
+		
+		<typeAlias alias="brochureVO" type="com.vision.tek.board.vo.BrochureVO"/>
+		
+		<typeAlias alias = "AdminVO" type ="com.vision.tek.admin.vo.AdminVO" />
+	</typeAliases>
+</configuration>

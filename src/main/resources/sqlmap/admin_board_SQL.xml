@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd ">
+
+<mapper namespace="boardDAO">
+	<select id = "selectNoticeList" resultType = "boardVO">
+		SELECT  seq
+                ,title
+                ,content
+                ,(case when important='Y' then 'O' else 'X' end) AS important
+                ,read_count AS readCount
+                ,has_attachment AS hasAttachment
+                ,writer_id AS writerId
+                ,writer_name AS writerName
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    board
+        <if test="searchKeyword != ''">
+            <choose>
+                <when test="searchCondition == 'title'">
+                    WHERE   title like CONCAT('%', #{searchKeyword}, '%') 
+                </when>
+                <when test="searchCondition == 'content'">
+                    WHERE   content like CONCAT('%', #{searchKeyword}, '%')
+                </when>
+            </choose>
+        </if>
+<!--         ORDER BY seq DESC -->
+		ORDER BY important, seq DESC
+        LIMIT #{firstIndex}, #{recordCountPerPage}
+	</select>
+	
+	<select id = "selectNoticeCnt" resultType = "int">
+		SELECT  COUNT(1)
+        FROM    board
+        <if test="searchKeyword != ''">
+            <choose>
+                <when test="searchCondition == 'title'">
+                    WHERE   title like CONCAT('%', #{searchKeyword}, '%') 
+                </when>
+                <when test="searchCondition == 'content'">
+                    WHERE   content like CONCAT('%', #{searchKeyword}, '%')
+                </when>
+            </choose>
+        </if>
+	</select>
+	
+	<insert id = "registerNotice" useGeneratedKeys = "true" keyProperty = "seq" keyColumn = "seq">
+		INSERT INTO 
+			board (
+			    title
+                , content
+                , has_attachment
+				, important
+				, writer_id
+				, writer_name
+			) VALUES (
+				#{title}
+				, #{content}
+				, #{hasAttachment}
+				, #{important}
+				, #{writerId}
+				, #{writerName}
+			)
+	</insert>
+	
+	<insert id = "insertFileInfo">
+		INSERT INTO
+			board_file (
+				  board_seq
+				, org_filename
+				, real_filename
+				, file_size
+			) VALUES (
+				  #{boardSeq}
+				, #{orgFilename}
+				, #{realFilename}
+				, #{fileSize}
+			)
+	</insert>
+	
+	<select id = "selectNotice" resultType = "boardVO">
+		SELECT  seq
+                ,title
+                ,content
+                ,important
+                ,read_count AS readCount
+                ,has_attachment AS hasAttachment
+                ,writer_id AS writerId
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    board
+        WHERE   seq = #{seq}
+	</select>
+	
+	<select id = "selectFileInfo" resultType = "map">
+		<![CDATA[
+			SELECT
+				  seq
+				, board_seq AS boardSeq 
+				, file_size AS fileSize
+				, org_filename AS orgFilename
+				, real_filename AS realFilename
+			FROM board_file
+			WHERE board_seq = #{boardSeq}
+		]]>
+	</select>
+	
+	<update id = "modifyNotice">
+		<![CDATA[
+			UPDATE board
+			SET
+				  title = #{title}
+				, content = #{content}
+				, has_attachment = #{hasAttachment}
+				, important = #{important}
+				, updater_id = #{updaterId}
+				, updater_name = #{updaterName}
+				, update_dt = NOW()
+			WHERE seq = #{seq}
+		]]>
+	</update>
+	
+	<delete id = "deleteFile">
+		DELETE
+		FROM board_file 
+		WHERE seq = #{fileId}
+	</delete>
+	
+	<delete id = "deleteNotice">
+		<![CDATA[
+			DELETE
+			FROM board 
+			WHERE seq IN
+		]]>
+		<foreach item = "seqs" collection = "array" open = "(" close = ")" separator = ",">
+			#{seqs}
+		</foreach>
+	</delete>
+	
+	<delete id = "deleteNoticeFiles">
+		DELETE
+		FROM    board_file 
+        WHERE   board_seq IN
+        <foreach item = "seqs" collection = "array" open = "(" close = ")" separator = ",">
+            #{seqs}
+        </foreach>
+    </delete>
+    
+    <select id="selectBoardFilenameList" resultType="string">
+        SELECT  real_filename
+        FROM    board_file
+        WHERE   board_seq IN
+        <foreach item = "seqs" collection = "array" open = "(" close = ")" separator = ",">
+            #{seqs}
+        </foreach>
+    </select>
+    
+	<select id = "selectDownFileInfo" resultType = "fileVO">
+		<![CDATA[
+			SELECT
+				seq
+				, board_seq AS boardSeq
+				, org_filename AS orgFilename
+				, real_filename AS realFilename
+				, file_size AS fileSize
+			FROM board_file
+			WHERE seq = #{fildId}
+		]]>
+	</select>
+	
+	<select id = "selectItemList" resultType = "itemVO">
+		SELECT  seq
+                ,(case when important='Y' then 'O' else 'X' end) AS important
+				,type
+                ,title
+                ,sub_title AS subTitle
+                ,content
+                ,item_number AS itemNumber
+                ,price
+                ,writer_id AS writerId
+                ,writer_name AS writerName
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    board_item
+        <if test="searchKeyword != ''">
+            <choose>
+                <when test="searchCondition == 'title'">
+                    WHERE   title like CONCAT('%', #{searchKeyword}, '%') 
+                </when>
+                <when test="searchCondition == 'type'">
+                    WHERE   type like CONCAT('%', #{searchKeyword}, '%')
+                </when>
+            </choose>
+        </if>
+        ORDER BY seq DESC
+        LIMIT #{firstIndex}, #{recordCountPerPage}
+	</select>
+	
+	<select id = "selectItemCnt" resultType = "int">
+		SELECT  COUNT(1)
+        FROM    board_item
+        <if test="searchKeyword != ''">
+            <choose>
+                <when test="searchCondition == 'title'">
+                    WHERE   title like CONCAT('%', #{searchKeyword}, '%') 
+                </when>
+                <when test="searchCondition == 'type'">
+                    WHERE   type like CONCAT('%', #{searchKeyword}, '%')
+                </when>
+            </choose>
+        </if>
+	</select>
+	
+	<insert id = "registerItem" useGeneratedKeys = "true" keyProperty = "seq" keyColumn = "seq">
+		INSERT INTO 
+			board_item (
+				  important
+				, type
+			    , title
+			    , sub_title
+                , content
+                , item_number
+                , price
+				, writer_id
+				, writer_name
+			) VALUES (
+				  #{important}
+				, #{type}
+				, #{title}
+				, #{subTitle}
+				, #{content}
+				, #{itemNumber}
+				, #{price}
+				, #{writerId}
+				, #{writerName}
+			)
+	</insert>
+	
+	<select id = "selectItem" resultType = "itemVO">
+		SELECT  seq
+			    ,important
+                ,type
+                ,title
+                ,sub_title AS subTitle
+                ,content
+                ,item_number AS itemNumber
+                ,price
+                ,writer_id AS writerId
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    board_item
+        WHERE   seq = #{seq}
+	</select>
+	
+	<update id = "modifyItem">
+		<![CDATA[
+ 			UPDATE board_item 
+ 			SET	
+ 				  important = #{important}
+ 				, type = #{type} 
+ 				, title = #{title} 
+ 				, sub_title = #{subTitle} 
+ 				, content = #{content} 
+ 				, item_number = #{itemNumber} 
+ 				, price = #{price} 
+ 				, updater_id = #{updaterId} 
+ 				, updater_name = #{updaterName} 
+ 				, update_dt = NOW() 
+ 			WHERE seq = #{seq} 
+ 		]]> 
+	</update>
+	
+	<delete id = "deleteItem">
+		<![CDATA[
+ 			DELETE 
+ 			FROM board_item 
+ 			WHERE seq IN 
+ 		]]> 
+		<foreach item = "seqs" collection = "array" open = "(" close = ")" separator = ",">
+			#{seqs}
+		</foreach>
+	</delete>
+	
+	
+	
+	<select id = "selectBrochureList" resultType = "brochureVO">
+		SELECT  seq
+                ,title
+                ,has_attachment AS hasAttachment
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    brochure_item
+        <if test="searchKeyword != ''">
+            <choose>
+                <when test="searchCondition == 'title'">
+                    WHERE   title like CONCAT('%', #{searchKeyword}, '%') 
+                </when>
+            </choose>
+        </if>
+        ORDER BY seq DESC
+        LIMIT #{firstIndex}, #{recordCountPerPage}
+	</select>
+	
+	<select id = "selectBrochureCnt" resultType = "int">
+		SELECT  COUNT(1)
+        FROM    brochure_item
+        <if test="searchKeyword != ''">
+            <choose>
+                <when test="searchCondition == 'title'">
+                    WHERE   title like CONCAT('%', #{searchKeyword}, '%') 
+                </when>
+            </choose>
+        </if>
+	</select>
+	
+	<insert id = "registerBrochure" useGeneratedKeys = "true" keyProperty = "seq" keyColumn = "seq">
+		INSERT INTO 
+			brochure_item (
+			      title
+                , has_attachment
+			) VALUES (
+				  #{title}
+				, #{hasAttachment}
+			)
+	</insert>
+	
+	<select id = "selectBrochure" resultType = "brochureVO">
+		SELECT  seq
+                ,title
+                ,has_attachment AS hasAttachment
+                ,DATE_FORMAT(create_dt, '%Y-%m-%d') AS createDt
+        FROM    brochure_item
+        WHERE   seq = #{seq}
+	</select>
+	
+	<update id = "modifyBrochure">
+		<![CDATA[
+			UPDATE brochure_item
+			SET
+				  title = #{title}
+				, has_attachment = #{hasAttachment}
+				, update_dt = NOW()
+			WHERE seq = #{seq}
+		]]>
+	</update>
+	
+</mapper>
