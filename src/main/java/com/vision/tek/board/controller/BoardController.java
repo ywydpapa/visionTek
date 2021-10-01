@@ -68,6 +68,7 @@ public class BoardController {
 		return "/news/notice_view";
 	}
 	
+	
 	//procure
 	@RequestMapping(value = "/procure/procure01")
 	public String moveToProcure01(ItemVO itemVO, Model model,
